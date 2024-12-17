@@ -26,13 +26,8 @@ SECRET_KEY = 'django-insecure-ue-66_b8sw$$u0h^e_w84utm1)-xw8yp)1fk8bz+4+wa)8s@3%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:3000',
-# ]
-
-# Application definition
+ALLOWED_HOSTS = ['benjaminandoh.pythonanywhere.com', '127.0.0.1']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
