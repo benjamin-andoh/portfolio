@@ -20,9 +20,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">SKILLS</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">PROJECTS</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">ABOUT</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">PROJECTS</a></li>
             </ul>
         </div>
     </div>
@@ -37,11 +36,6 @@
             <a href="#" class="btn btn-outline-light">CONTACT ME</a>
             <a href="#" class="btn btn-primary" style="background-color: #ff4a9c; border-color: #ff4a9c;">GET RESUME</a>
         </div>
-        <div class="mt-4">
-            <a href="#" class="text-light mx-2"><i class="bi bi-github fs-3"></i></a>
-            <a href="#" class="text-light mx-2"><i class="bi bi-linkedin fs-3"></i></a>
-            <a href="#" class="text-light mx-2"><i class="bi bi-twitter fs-3"></i></a>
-        </div>
     </div>
 </section>
 
@@ -52,18 +46,22 @@
             <div class="card bg-dark text-light">
                 <div class="card-body">
                     <pre class="text-success">
-                    const coder = {
-                        name: 'Benjamin Kojo Andoh',
-                        skills: ['Django', 'NextJS', 'Redux', 'Express',
-                                'NestJS', 'MySql', 'MongoDB', 'Docker', 'AWS'],
-                        hardWorker: true,
-                        quickLearner: true,
-                        problemSolver: true,
-                        hireable: function() {
-                            return this.hardWorker && this.problemSolver && this.skills.length >= 5;
-                        }
-                    };
-                    </pre>
+const coder = {
+    name: 'Benjamin Kojo Andoh',
+    languagesAndFrameworks: {
+        Python: ['Django'],
+        JavaScript: ['React.js', 'Node.js'],
+        Java: ['SpringBoot']
+    },
+    hardWorker: true,
+    quickLearner: true,
+    problemSolver: true,
+    hireable: function() {
+        return this.hardWorker && this.problemSolver && Object.keys(this.languagesAndFrameworks).length >= 3;
+    }
+};
+</pre>
+
                 </div>
             </div>
         </div>

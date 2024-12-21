@@ -1,17 +1,84 @@
-from django.shortcuts import render
-from rest_framework import generics
-from rest_framework.response import Response
 from .models import Project
-from .serializers import ProjectSerializer
-from django.views.generic import ListView
-from .models import Project
-
-class ProjectListCreate(generics.ListCreateAPIView):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+from django.views.generic import TemplateView, ListView
 
 
-class ProjectListView(ListView):
-    model = Project
-    template_name = 'projects/project_list.html'  
-    context_object_name = 'projects'
+
+
+class HomePage(TemplateView):
+    template_name = 'projects/homepage.html'
+
+
+class AboutView(TemplateView):
+    template_name = "projects/about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "About Me"
+        context["description"] = "I am a professional software developer with expertise in Django, React, and more."
+        context["skills"] = [
+            "Django",
+            "React.js",
+            "Redux",
+            "PostgreSQL",
+            "Docker",
+            "AWS",
+            "Next.js"
+        ]
+        return context
+
+class ProjectsView(TemplateView):
+    template_name = 'projects/projects.html'
+
+    def get_context_data(self, **kwargs):
+        # Adding mock project data based on resume
+        context = super().get_context_data(**kwargs)
+        context['projects'] = [
+            {
+                'title': 'Inventory Management System - Reboot Canada',
+                'description': (
+                    'Designed and implemented an inventory management system using Django, '
+                    'enhancing operational efficiency with real-time inventory updates and '
+                    'advanced search capabilities.'
+                )
+            },
+            {
+                'title': 'Shift Tracking System - MeshLabs',
+                'description': (
+                    'Developed a robust shift-tracking system using SpringBoot, enabling real-time '
+                    'notifications and improving HR and finance operations by 40%.'
+                )
+            },
+            {
+                'title': 'Document Management System - AmaliTech',
+                'description': (
+                    'Architected and managed a scalable Document Management System leveraging AWS services '
+                    'such as EC2, S3, and CloudFormation, reducing manual provisioning errors by 90%.'
+                )
+            },
+            {
+                'title': 'Real-Time Chat Application - AITI-KACE',
+                'description': (
+                    'Developed and deployed a real-time chat application using Laravel and WebSocket technologies, '
+                    'enabling seamless customer communication and increasing customer support efficiency by 40%.'
+                )
+            },
+            {
+                'title': 'E-Commerce Analytics Dashboard',
+                'description': (
+                    'Built an interactive analytics dashboard for an e-commerce platform, utilizing Vue.js and Flask to provide '
+                    'real-time insights into sales trends, customer behavior, and inventory status.'
+                )
+            },
+            {
+                'title': 'Automated Code Quality Monitoring System',
+                'description': (
+                    'Created an automated code quality monitoring system using Jenkins and SonarQube, achieving 95% code coverage '
+                    'and improving team productivity by 30%.'
+                )
+            },
+        ]
+        return context
+
+
+
+
