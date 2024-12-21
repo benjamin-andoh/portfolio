@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Andoh - Resume</title>
+    <!-- Add your CSS file link here -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+
+<section class="container py-5">
+    <h1 class="text-center mb-4">My Resume</h1>
+    <div class="bg-light p-4 shadow-sm">
+        <!-- Use Django's static tag for correct file referencing -->
+        <iframe src="{% static 'resume/resume.pdf' %}" width="100%" height="600px" frameborder="0"></iframe>
+        <div class="text-center mt-4">
+            <a href="{% url 'download_resume' %}" class="btn btn-primary">Download Resume</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-3 mt-5">
+        <div class="container text-center">
+            <p class="m-0">&copy; 2024 Benjamin Andoh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add your JavaScript file link here -->
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>

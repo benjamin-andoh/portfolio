@@ -1,6 +1,7 @@
-from .models import Project
 from django.views.generic import TemplateView, ListView
-
+from django.http import FileResponse
+import os
+from django.conf import settings
 
 
 
@@ -25,6 +26,21 @@ class AboutView(TemplateView):
             "Next.js"
         ]
         return context
+
+
+
+
+class ResumeView(TemplateView):
+    template_name = 'projects/resume.html'
+
+def download_resume(request):
+    # Use the actual path to your resume file
+    file_path = os.path.join(settings.BASE_DIR, 'static', 'resume', 'resume.pdf')
+    try:
+        return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='Benjamin_Andoh_Resume.pdf')
+    except FileNotFoundError:
+        return HttpResponseNotFound("The requested file was not found.")
+
 
 class ProjectsView(TemplateView):
     template_name = 'projects/projects.html'

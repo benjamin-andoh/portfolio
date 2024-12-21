@@ -20,8 +20,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">ABOUT</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">PROJECTS</a></li>
+
             </ul>
         </div>
     </div>
@@ -32,10 +31,16 @@
     <div class="container">
         <h1 class="fw-bold">Hello, This is <span style="color: #ff4a9c;">Benjamin Kojo Andoh</span>,</h1>
         <h2>I'm a Professional <span style="color: #19e8b4;">Software Developer</span>.</h2>
+
+
         <div class="d-flex justify-content-center gap-3 my-4">
-            <a href="#" class="btn btn-outline-light">CONTACT ME</a>
-            <a href="#" class="btn btn-primary" style="background-color: #ff4a9c; border-color: #ff4a9c;">GET RESUME</a>
+            <a href="{% url 'about' %}" class="btn btn-primary" style="background-color: #ff4a9c; border-color: #ff4a9c;" >ABOUT</a>
+            <a href="{% url 'projects' %}" class="btn btn-outline-light">PROJECTS</a>
+            <a href="{% url 'download_resume' %}" class="btn btn-primary" style="background-color: #ff4a9c; border-color: #ff4a9c;">GET RESUME</a>
         </div>
+
+
+
     </div>
 </section>
 
@@ -69,7 +74,7 @@ const coder = {
 </section>
 
 <!-- Footer -->
-<footer class="text-center py-3 bg-dark">
+<footer class="text-center">
     <div class="container">
         <p class="mb-0">&copy; 2024 Benjamin Kojo Andoh | All Rights Reserved</p>
     </div>
